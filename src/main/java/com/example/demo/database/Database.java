@@ -28,15 +28,12 @@ public class Database {
     }
 
     public User getUser(String userName, String password){
-        for (User user : users) {
-//            if (user.getUserName()==userName && user.getPassword()==password) {
-//                userEntity=user;
-//                System.out.println(userEntity);
-//            }
-            System.out.println(userName+""+password);
-            System.out.println(user.getUserName()+""+user.getPassword());
+        for (User u : users) {
+            if(u.getPassword()==password || userName==u.getUserName()){
+                return u;
+            }
+            userEntity=u;
         }
-        System.out.println(userEntity);
         return userEntity;
     }
 }

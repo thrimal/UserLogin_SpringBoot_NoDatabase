@@ -34,7 +34,7 @@ public class UserController {
 
     }
 
-    @GetMapping(params = {"userName"})
+    @GetMapping(params = {"userName","password"})
     public ResponseEntity getUser(@RequestParam String userName, @RequestParam String password){
         try {
             UserDTO user = userService.getUser(userName, password);
