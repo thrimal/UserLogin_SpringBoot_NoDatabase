@@ -6,11 +6,7 @@ import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author Thrimal Avishka <thrimalavishka99@gmail.com>
@@ -33,7 +29,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO getUser(String userName, String password) {
         User user = database.getUser(userName, password);
-        UserDTO userDTO = mapper.map(user, UserDTO.class);
-        return userDTO;
+        return mapper.map(user, UserDTO.class);
     }
 }

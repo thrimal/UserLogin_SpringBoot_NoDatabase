@@ -4,7 +4,6 @@ import com.example.demo.entity.User;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Thrimal Avishka <thrimalavishka99@gmail.com>
@@ -12,8 +11,7 @@ import java.util.List;
  */
 @Component
 public class Database {
-    private ArrayList<User> users = new ArrayList<User>();
-    private User userEntity;
+    private ArrayList<User> users = new ArrayList<>();
 
     public ArrayList<User> getUsers() {
         System.out.println(users);
@@ -29,11 +27,10 @@ public class Database {
 
     public User getUser(String userName, String password){
         for (User u : users) {
-            if(u.getPassword()==password || userName==u.getUserName()){
+            if(u.getPassword().equals(password) && u.getUserName().equals(userName)){
                 return u;
             }
-            userEntity=u;
         }
-        return userEntity;
+        return null;
     }
 }
